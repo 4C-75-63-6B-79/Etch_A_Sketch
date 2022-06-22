@@ -1,0 +1,71 @@
+/* style.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open San', sans-serif;
+    font-size: 16px;
+    height: 100vh;
+    padding: 10px;
+    background-color: #cbced2;
+    display: grid;
+    grid-template-areas: 
+    'header header '
+    'controls content '
+    'footer footer '
+    ;
+
+    grid-template-columns: 300px 1fr;
+    gap: 5px;
+}
+
+#sketchContainer {
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    box-shadow: 0 0 1px 3px #abaeb1;
+    display: grid;
+}
+
+header,
+nav,
+main,
+footer {
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    grid-area: header;
+    text-align: center;
+    font-size: 35px;
+}
+
+nav {
+    grid-area: controls;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main {
+    grid-area: content;
+}
+
+footer {
+    grid-area: footer;
+}
+
+button {
+    font-weight: bold;
+    padding: 5px;
+    border: 2px solid lightslategrey;
+    border-radius: 10px;
+    box-shadow: 0 0 1px 3px lightslategray;
+}
