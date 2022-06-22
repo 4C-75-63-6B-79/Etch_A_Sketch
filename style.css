@@ -26,6 +26,7 @@ body {
 #sketchContainer {
     height: 500px;
     width: 500px;
+    user-select: none;
     background-color: white;
     box-shadow: 0 0 1px 3px #abaeb1;
     display: grid;
