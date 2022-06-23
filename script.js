@@ -12,17 +12,19 @@ function addDiv(numberOfColumns) {
         const div = document.createElement('div');
         div.setAttribute('id', i)
         div.classList.add('gridSquare');
-        div.addEventListener('mousemove', () => doSketch(div));
+        div.addEventListener('mousemove', () => drawOrErase(div));
         sketchContainer.appendChild(div);
     }
     // console.log(sketchContainer.childElementCount);
 }
 
 // does the drawing on the sketch container
-function doSketch(div){
+function drawOrErase(div){
     const colorPicker = document.querySelector('#colorPicker');
     if(mouseDown && isFillButtonPressed) {
         div.style.setProperty('background-color', colorPicker.value);
+    } else if(mouseDown && isEraseButtonPressed) {
+        div.style.setProperty('background-color', 'white');
     }
 }
 

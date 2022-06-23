@@ -1,5 +1,7 @@
 /* style.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Sofia&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,11 +9,11 @@
 }
 
 body {
-    font-family: 'Open San', sans-serif;
+    font-family: 'Sofia', 'Lobster';
     font-size: 16px;
     height: 100vh;
     padding: 10px;
-    background-color: #cbced2;
+    background-color: #fefefe;
     display: grid;
     grid-template-areas: 
     'header header '
@@ -36,7 +38,6 @@ header,
 nav,
 main,
 footer {
-    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,9 +70,9 @@ button {
     width: 75px;
     font-weight: bold;
     padding: 5px;
-    border: 2px solid lightslategrey;
+    background-color: lightgray;
     border-radius: 10px;
-    box-shadow: 0 0 1px 3px lightslategray;
+    box-shadow: 0 0 1px 1px whitesmoke;
 }
 
 #colorPicker{
@@ -88,5 +89,5 @@ button {
 
 .pressed {
     background-color: black;
-    color: white;
+    color: white; 
 }
