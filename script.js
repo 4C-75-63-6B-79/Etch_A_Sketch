@@ -1,6 +1,8 @@
 // script.js
 
 let mouseDown = null;
+let isFillButtonPressed = true;
+let isEraseButtonPressed = false;
 
 // Creates the grid
 function addDiv(numberOfColumns) {
@@ -18,8 +20,9 @@ function addDiv(numberOfColumns) {
 
 // does the drawing on the sketch container
 function doSketch(div){
-    if(mouseDown) {
-        div.style.setProperty('background-color', 'lightgray');
+    const colorPicker = document.querySelector('#colorPicker');
+    if(mouseDown && isFillButtonPressed) {
+        div.style.setProperty('background-color', colorPicker.value);
     }
 }
 
@@ -54,6 +57,31 @@ function setMouseDown(value) {
     console.log(value);
 }
 
+// if eraseButton is pressed and then fillButton is pressed. Add pressed class to fillButton and removes it form the fillbutton
+// changes the state of isFillButtonPressed and isEraseButtonPressed accordingly
+function fillButtonThings() {
+    const fillButton = document.querySelector('#fillButton');
+    const eraseButton = document.querySelector('#eraseButton');
+    if(isEraseButtonPressed) {
+        isFillButtonPressed = true;
+        isEraseButtonPressed = false;
+        fillButton.classList.add('pressed');
+        eraseButton.classList.remove('pressed');
+    }
+}
+
+// function is similar to the above function for the fillButtonThings just opposite
+function eraseButtonThings() {
+    const fillButton = document.querySelector('#fillButton');
+    const eraseButton = document.querySelector('#eraseButton');
+    if(isFillButtonPressed) {
+        isFillButtonPressed = false;
+        isEraseButtonPressed = true;
+        fillButton.classList.remove('pressed');
+        eraseButton.classList.add('pressed');
+    }
+}
+
 function start() {
     deleteDiv();
     const pixelSlider = document.querySelector('#pixelSlider');
@@ -65,6 +93,13 @@ function start() {
     const gridContainer = document.querySelector('#sketchContainer');
     gridContainer.addEventListener('mousedown', () => setMouseDown(true));
     gridContainer.addEventListener('mouseup', () => setMouseDown(false));
+
+    const fillButton = document.querySelector('#fillButton');
+    fillButton.classList.add('pressed');
+    fillButton.addEventListener('click', () => fillButtonThings());
+
+    const eraseButton = document.querySelector('#eraseButton');
+    eraseButton.addEventListener('click', () => eraseButtonThings());
 
     const clearButton = document.querySelector("#clearButton");
     clearButton.addEventListener('click', () => clearGrid());

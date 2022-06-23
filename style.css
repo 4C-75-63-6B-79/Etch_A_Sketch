@@ -52,11 +52,13 @@ nav {
     grid-area: controls;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 main {
     grid-area: content;
+    min-width: 550px;
+    min-height: 550px;
 }
 
 footer {
@@ -64,9 +66,27 @@ footer {
 }
 
 button {
+    width: 75px;
     font-weight: bold;
     padding: 5px;
     border: 2px solid lightslategrey;
     border-radius: 10px;
     box-shadow: 0 0 1px 3px lightslategray;
+}
+
+#colorPicker{
+    appearance: none;
+    background: none;
+    border: 0;
+    height: 50px;
+    width: 50px;
+}
+
+#colorPicker::-webkit-color-swatch {
+    border-radius: 50%;
+}
+
+.pressed {
+    background-color: black;
+    color: white;
 }
